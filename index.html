@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a="salut";
+        let b="les gens";
+        const isMajeur=undefined;
+        const person={
+            firstname:"Belhassen",
+            lastname:"Khefacha",
+            age:21,
+            note:[12,15,19],
+            job:{
+                name:"informaticien",
+                hours:20,
+            }
+    }
+        console.log("bonjour"); 
+        const age=20;
+        if(age!==18)
+        {
+            console.log("pas 18");
+        }
+        else
+        {
+            console.log("18")
+        }
+        pays="US"
+        switch (pays){
+            case "FR":
+                console.log("france");
+                break;
+            case "US":
+                console.log("etat unis");
+                break;
+            default:
+                console.log("autre");
+        }
+        /*const year=2022
+        const birthyear=prompt("Quel est votre annee");
+        if(year-birthyear<13)
+        {
+            console.log("non matrix");
+        }
+        else if (year-birthyear>18)
+        {
+            console.log("evil dead");
+        }
+        else
+        {
+            console.log(" matrix");
+        }
+        
+        const a1=prompt("donner a1");
+        const a2=prompt("donner a2");
+        const c=a1*a2;
+        if(c>0)
+        {
+            console.log(`${a1}*${a2}=${c} est positif`);
+        }
+        else 
+        {
+            console.log(`${a1}*${a2}=${c} est negatif`);
+        }
+        const greeting="Bonjour";
+        console.log("affichage des lettres");
+        for (let letter of greeting)
+            console.log(letter);
+        console.log('---------------------');
+        console.log("affichage des indices");
+        for (letter in greeting)
+            console.log(letter);
+        const nombre=prompt("donner nbre");
+        function isPremier(nombre)
+        {
+            let nbdiv=0;
+            for (let i=0;i<=nombre;i++)
+            {
+                if(nombre % i===0)
+                {
+                    nbdiv++;
+                }
+            }
+            return nbdiv===2;
+        }
+        console.log(isPremier(nombre));
+
+        const ch=prompt("tapper une chaine");
+        function isPalindrome(ch)
+        {   const letters=ch.split('');
+            letters.reverse();
+            const ch1=letters.join('');
+            return ch===ch1;
+        }
+        console.log(isPalindrome(ch));
+        const not=[12,15,19];
+        const moyenne=(not) =>{
+            let sum=0;
+            for(let note of not){
+                sum+=note
+            }
+            return sum/not.length;
+        }
+        class student{
+            ecole="Jules Ferry"
+
+            constructor(prenom,nom){
+                this.prenom=prenom;
+                this.nom=nom;
+            }
+            set notes(v){
+                if(Array.isArray(v))
+                {
+                    this.not=v;
+                }
+            }
+            get nom (){
+                return `${this.prenom} ${this.nom}`;
+            }
+            canpass(){
+                return moyenne(this.not)>=10
+            }
+        }
+        const john=new student('john','doe');
+        const jane=new student('jane','xxx');
+        john.notes=10;
+        jane.notes=[14,14,16];
+        console.log(john.canpass(),jane.canpass);
+        console.log(john.nom);
+        console.log(jane.nom);*/
+
+
+
+        class rectangle{
+            constructor(larg,long){
+                this.larg=larg;
+                this.long=long; 
+            }
+            get perimetre(){
+                return 2*this.larg+2*this.long;
+            }
+
+            get isvalid(){
+                return this.larg>0 && this.long >0;
+            }
+        }
+
+
+        class square extends rectangle{
+            constructor(larg){
+                super(larg,larg);
+            }
+        }
+
+        const r=new Rectangle(10,20);
+        console.log(r.perimetre);
+        console.log(r.isvalid);
+        const r2=new rectangle(-10,30);
+        console.log(r2.isvalid);
+        const c=new square(10);
+        console.log(c.perimetre);
+        console.log(c.isbiggerthan(r));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
