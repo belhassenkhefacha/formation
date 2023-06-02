@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
+<!doctype html>
+<html lang>
+	<head>
+		<meta charset="UTF-8">
+		<title>js</title>
+	</head>
+	<script type="module">
         let a="salut";
         let b="les gens";
         const isMajeur=undefined;
@@ -40,7 +39,7 @@
             default:
                 console.log("autre");
         }
-        /*const year=2022
+        const year=2022
         const birthyear=prompt("Quel est votre annee");
         if(year-birthyear<13)
         {
@@ -131,12 +130,13 @@
         jane.notes=[14,14,16];
         console.log(john.canpass(),jane.canpass);
         console.log(john.nom);
-        console.log(jane.nom);*/
-
+        console.log(jane.nom);
 
 
         class rectangle{
             constructor(larg,long){
+                if(larg<=0 || long<=0)
+                    throw new Error('verifier la taille');
                 this.larg=larg;
                 this.long=long; 
             }
@@ -147,6 +147,11 @@
             get isvalid(){
                 return this.larg>0 && this.long >0;
             }
+
+            isbiggerthan(shape)
+            {
+                return this.perimetre>shape.perimetre;
+            }
         }
 
 
@@ -154,18 +159,207 @@
             constructor(larg){
                 super(larg,larg);
             }
+
         }
 
-        const r=new Rectangle(10,20);
+        
+
+        class promptError extends Error{
+
+        }
+
+
+        function promptrectangle(){
+            const wid=parseInt(prompt('tapper le largeur'),10);
+            const hei=parseInt(prompt('tapper le longueur'),10);
+            const r=new rectangle(wid,hei);
+            return r;        
+    }
+        
+    try{
+        promptrectangle();
         console.log(r.perimetre);
         console.log(r.isvalid);
-        const r2=new rectangle(-10,30);
+        const w=parseInt(prompt('tapper le largeur du 2eme rectangle'),10);
+        const h=parseInt(prompt('tapper le longueur du 2eme rectangle'),10);
+        const r2=new rectangle(w,h);
         console.log(r2.isvalid);
-        const c=new square(10);
+        const width=parseInt(prompt('tapper le largeur du carré'),10);
+        const c=new square(width);
         console.log(c.perimetre);
-        console.log(c.isbiggerthan(r));
+        console.log(r.isbiggerthan(c));
+    }catch(e){
+        if(e instanceof promptError)
+        {
+            console.log('promptError');
+        }
+        else
+        {
+            console.log('erreur classique',e);
+        }
+        
+    }
+        class livre{
+            #page=1;
+            constructor(titre,nbpage){
+                this.titre=titre;
+                if(nbpage<=0)
+                    throw new Error('nombre de page negatif');
+                this.nbpage=nbpage;   
+            }
+
+            get page(){
+                return this.#page;
+            }
+
+            nextpage(){
+                if(this.#page<this.nbpage)
+                {
+                    this.#page++;
+                }   
+            }
+
+            close(){
+                this.#page=1;
+            }
+        }
+
+        class library{
+            #books=[];
+            addbook(book){
+                this.#books.push(book);
+            }
 
 
+            addbooks(books){
+                for(let book of books)
+                {
+                    this.addbook(book);
+                }
+                
+                books.forEach(book=>this.addbook(book));   
+            }
+
+            findbooksbyletter(letter){
+                return this.#books.filter((book)=> book.titre[0].toLowerCase()===letter.toLowerCase())
+            }
+            
+        }
+        const book=new livre('b1',50);
+        console.log(book.page);
+        book.nextpage();
+        console.log(book.page);
+        book.close();
+        console.log(book.page);
+        const lib=new library();
+        lib.addbook(book);
+        lib.addbooks(
+            [new livre('demon slyer',200),
+            new livre('boku',300),
+            new livre('aot',60)]
+        );
+        console.log(lib.findbooksbyletter('b'));
+        const double= n => n*2;
+        console.log(double(4));
+        let  aaa=0;
+        aaa ||=3
+        const bbb= aaa ?? 5;
+        console.log(bbb);
+        const notes=[12,13,14];
+        const premiernotes=notes[0];
+        const secondnotes=notes[1];
+        //ou bien
+        const[premiernotes,secondnotes]=[12,13,14];
+        console.log("premier note =",premiernotes);
+        console.log("second note =",secondnotes);
+        const ag=15;
+        const pa="TUN";
+        console.log(ag>=18 ? "Majeur" : "Mineur");
+
+        function wait(duration){
+            const t=Date.now();
+            while(Date.now()-t<duration){
+
+            }
+        }
+
+         function decompte(n){ 
+            setTimeout(()=>{
+				n--;
+				console.log(n);
+				decompte(n);
+			},1000);
+        }
+		decompte(3)
+		decompte(0);
+        decompte(3);
+        console.log("Bonjour");
+        setTimeout(()=>{
+            console.log("Au Revoir");
+        },1000)
+        const p=new Promise((resolve,reject)=>{
+			resolve(4);
+		})
+		function waitsync(duration){
+			const t=Date.now()
+			while(Date.now -t <duration)
+			{
+				
+			}
+		function wait(duration){
+			return new Promise((resolve,reject) =>{
+				setTimeout(()=>{
+					resolve(duration)
+				},duration)
+			})
+		}
+		
+		function waitandfail(duration){
+			return new Promise((resolve,reject) => {
+				setTimeout(() => {
+					reject(duration)
+				},duration)
+			})
+		}
+		
+		async function main() {
+			const duration=await wait(2000)
+			console.log(`duration  ${duration}`);
+			return 5
+		}
+		
+		const p=new Promise((r) => {
+			console.log('hello')
+			r(2)
+		})
+		p.then(() => {
+			console.log('then');
+		waitsync(2000)
+		console.log('les gens')
+		const y=new AbortController();
+		Promise.race([
+			fetch('https://jsonplaceholder.typicode.com/posts/?_limit=5&delay=2000',{
+				signal: y.signal
+			}),
+			fetch('https://jsonplaceholder.typicode.com/users/?_limit=3',{
+				signal: y.signal
+			
+			})
+		]).then(r=>r.json()).then(body => {
+				y.abort()
+				console.log(body)
+		})
+		import { sum as somme, hello } from './array.js'
+		import bye from './hello.js'
+		console.log(bye)
+		(async function(){
+			const {hello}= await import('./array.js')
+			hello()
+		})
+		/** @type {string[]}  */         //preciser le type de la variable b 
+        const b=[]
+		
+         
     </script>
 </head>
 <body>
