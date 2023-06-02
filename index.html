@@ -359,6 +359,20 @@
 		/** @type {string[]}  */         //preciser le type de la variable b 
         const b=[]
 		
+		new Date()
+		new Date(10)
+		new Date(2022,0,1)          //0:janvier   
+		new Date(2022,14,1)          // 1 mars 2023
+		new Date(2022,0,32)          // 1 february 2022
+		new Date(2022,0,32).getTimezoneOffset()
+		const d1=new Date(2023,2,3)
+		const day=d1.getDay()                  //mercredi
+		const mon=d1.getMonth()                //mars
+		const h=d1.getHours()
+		const m=d1.getMinutes()
+		const sec=d1.getSeconds()
+		console.log(`le ${day} ${mon}`)
+		
          
     </script>
 </head>
