@@ -1,5 +1,5 @@
-import { fetchJSON } from "./functions/api.js";
-import {alertElement} from "./functions/alert.js";
+import { fetchJSON } from "./functions/apisystemecommentaire.js";
+import {alertElement} from "./functions/alertsystemecommentaire.js";
 
 class InfinitePagination {
   /** @type {string} */
