@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js</title>
+		<script src="./Evenement.js" ></script>
+	</head>
+	<style>
+		div{
+			width:100px;
+			height:100px;
+			background-color:grey;
+		}
+		.spoiler{
+			background-color:#000;
+			color:#000;
+			cursor:pointer;
+		}
+		
+		.spoiler::selection{
+			color:rgba(0,0,0,0);
+		}
+		span{
+			transition: .3s;
+		}
+	</style>
+	<body>
+		<form action="">
+			<input type="text" name="firstame">
+			<button>Envoyer</button>
+			<input type="checkbox" name="c">
+			<select>
+				<option value="option 1">option 1</option>
+				<option value="option 2">option 2</option>
+				<option value="option 3">option 3</option>
+			</select>
+			<p>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus neque repudiandae inventore rem corrupti atque explicabo sint, iusto tenetur distinctio? Aspernatur velit adipisci eveniet, alias ipsum accusantium praesentium laboriosam?
+				<br><span class="spoiler">Aliquam, ea molestiae vitae itaque consequatur quidem sequi atque cumque odio nobis iusto,</span><br> pariatur vel nulla maxime expedita assumenda mollitia enim doloribus hic ducimus. Culpa esse laboriosam ratione eos! Deleniti.
+				Dignissimos natus dolorum totam tempore, distinctio eligendi necessitatibus facilis eius quod alias ut nisi odit recusandae ipsum in eum! Optio expedita unde vitae eveniet eum soluta error fugiat facere animi.
+			</p>
+			<section class="container pt-5" id="todolist">
+			</section>
+			
+			
+			<template id="todolist-layout">
+				<form class="d-flex pb-4">
+					<input required="" class="form-control" type="text" placeholder="Acheter des patates">
+					<button class="btn btn-primary">Ajouter</button>
+				</form>
+				<main>
+					<div class="btn group mb-4 filter" role="group">
+						<button type="button" class="btn btn-outline">Toutes</button>
+						<button type="button" class="btn btn-outline">A faire</button>
+						<button type="button" class="btn btn-outline">Faites</button>
+					</div>
+					
+					<ul class="list-group">
+					</ul>
+				</main>
+			</template>
+			
+			<template id="todolist-item">
+	</body>
+</html>

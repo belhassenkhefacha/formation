@@ -2,9 +2,10 @@
 <html lang>
 	<head>
 		<meta charset="UTF-8">
-		<title>js</title>
+		<title>doc</title>
 	</head>
-	<script type="module">
+	<script src="app.js">
+	/*
         let a="salut";
         let b="les gens";
         const isMajeur=undefined;
@@ -357,7 +358,7 @@
 			hello()
 		})
 		/** @type {string[]}  */         //preciser le type de la variable b 
-        const b=[]
+       /* const b=[]
 		
 		new Date()
 		new Date(10)
@@ -372,11 +373,74 @@
 		const m=d1.getMinutes()
 		const sec=d1.getSeconds()
 		console.log(`le ${day} ${mon}`)
+		console.log(new Date().toUTCString())
+		new Date().toLocaleDateString()
+		new Date().toLocaleDateString("en-US")
+		new Date().toLocaleTimeString()
+		new Date().toLocaleString(undefined,{datestyle: 'long'})
+		new Date().toLocaleString(undefined,{datestyle: 'long', timestyle:'long'})
+		new Date().toLocaleString(undefined,{datestyle: 'medium', timestyle:'long'})
+		function addDays(date,days){
+		const newDate= new Date(date.getTime())
+			newDate.setDate(newDate.getDate()+days)
+			return newDate
+		}
+		const years=0
+		const months=1
+		const days=2
+		const h=3
+		const m=4
+		const s=5
+		const ms=6
+		
+		function addInterval(date,interval){
+			const parts=[
+				date.getFullYear(),
+				date.getMonth(), 
+				date.getDate(),
+				date.getHours(),
+				date.getMinutes(),
+				date.getSeconds(),
+				date.getMilliseconds()
+			]
+			for(const [unit,value] of Object.entries(interval))
+			{
+				parts[unit] += value
+			}
+			return new Date(...parts)
+		}
+		const today=new Date()
+		const future=addInterval(today,{
+			[months]:2,
+			[days]:1,
+			[m]:3,
+			
+		})
+		console.log('today =',today)
+		console.log=('future=',(future.getTime()-Date.now())/1000)*/
 		
          
     </script>
 </head>
+<style>
+    button{
+        height: 100px;
+    }
+</style>
 <body>
+    <div style="height:300px; width: 300px;background: grey;"></div>
+    <div>
+        <h1>Bonjour</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, tempora, facilis quas quod iusto quidem mollitia nobis at eveniet quos repellendus officia blanditiis. Repellat, voluptate neque tenetur doloremque dolorem cum.
+        </p>
+    </div>
+    <div data-user="john"></div>
+    <button data-name="john">john</button>
+    <div style="height: 1000px;"></div>
+    <button class="btn1">bonjour</button>
+    <div style="height: 1000px;"></div>
+    <button class="btn2">bonjour</button>
     
 </body>
 </html>
