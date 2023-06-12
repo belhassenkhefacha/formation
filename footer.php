@@ -1,6 +1,14 @@
 </main><!-- /.container -->
+<footer>
+<hr>
 <div class="row">
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <?php require_once 'functions/compteur.php';
+        ajouter_vue();
+        $vues=nombre_vues(); 
+        ?>
+        Il y'a <?= $vues ?> visite<?php if($vues>1): ?>s<?php endif ?> sur le site
+    </div>
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <h5>navigation</h5>
@@ -9,6 +17,7 @@
         </ul>
     </div>
 </div>
+</footer>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -1,4 +1,10 @@
 <?php 
+session_start();
+unset($_SESSION['role']);
+$_SESSION['user']=[
+    'username' => 'john',
+    'password' => '0000'
+];
 $title="Page d'acceuil";
 require 'header.php'; ?>
 <div class="starter-template">
